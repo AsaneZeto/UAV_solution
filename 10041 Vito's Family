@@ -1,0 +1,47 @@
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+
+    int num_of_tc;
+    vector<int> result;
+
+    cin >> num_of_tc;
+
+    for (int i = 0; i < num_of_tc; ++i)
+    {
+        int r;
+        int best;
+        int dis = 0;
+        vector<int> s;
+        cin >> r;
+        for (int j = 0; j < r; ++j)
+        {
+            int t;
+            cin >> t;
+            s.push_back(t);
+        }
+
+        sort(s.begin(), s.end());
+        best = static_cast<int>(r / 2);
+
+        for (auto itr : s)
+        {
+            dis += abs(itr - s[best]);
+        }
+
+        result.push_back(dis);
+    }
+
+    for (auto s : result)
+    {
+        cout << s << endl;
+    }
+
+    return 0;
+}
